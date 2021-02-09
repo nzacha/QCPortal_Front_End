@@ -1,0 +1,47 @@
+<div>
+  <div class="container-fluid">
+    <div class="card col-centered border-primary my-3" style="margin-bottom: 15px;">
+      
+      <div class="card-header p-0">
+          <div class="bg-info text-white text-center py-4">
+              <div>
+                <label class="compact">
+                  <h3 class="compact"><i class="fa fa-chalkboard-teacher"></i> Researcher Editor</h3>
+                </label>
+              </div>
+              <label class="m-0">Manage Researchers</label>
+          </div>
+      </div>
+      <div id="researcher_container" class="card-body p-3">
+      </div>
+      <div class="card-footer">
+        <button onclick="addResearcher()"  class="btn btn-secondary py-2">
+          Add Researcher
+        </button>                  
+      </div>
+
+    </div>
+  </div>
+
+  <button id="removeItemModalToggle" style="display: none;" type= "button" class="btn btn-primary" data-toggle="modal" data-target="#removeItemModal">
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="removeItemModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="removeItemModalTitle">Select researcher</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span >&times;</span>
+          </button>
+        </div>
+        <div id="removeItemModalBody" class="modal-body text-center changed">
+        </div>
+        <div class="modal-footer">
+          <button id="removeItemModalAccept" type="button" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

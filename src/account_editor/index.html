@@ -1,0 +1,183 @@
+  <div class="container-fluid">
+    <div class="card col-centered border-primary" style="margin-bottom: 15px;">
+      <div class="card-header p-0">
+          <div class="bg-info text-white text-center py-4">
+              <div>
+                <label class="compact">
+                  <h3 class="compact"><i class="fa fa-envelope"></i> Account Editor</h3>
+                </label>
+              </div>
+              <label class="m-0">Edit your personal information</label>
+          </div>
+      </div>
+      <div class="card-body p-3">
+
+          <!--Body-->
+          <div class="row">
+            <div class="form-group col-sm-6">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
+                    </div>
+                    <input type="email" class="form-control" id="email_input" name="email" placeholder="example@mail.com" required>
+                </div>
+            </div>
+            <div class="form-group col-sm-6">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-lock text-info"></i></div>
+                    </div>
+                    <input type="password" class="form-control" id="password_input" name="password" placeholder="type your password here" required>
+                </div>
+            </div>
+          </div>   
+
+          <div class="row">
+            <div class="form-group col">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
+                    </div>
+                    <input type="text" class="form-control" id="name_input" name="name" placeholder="Name" required>
+                </div>
+            </div>
+            <div class="form-group col">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
+                    </div>
+                    <input type="text" class="form-control" id="surname_input" name="surname" placeholder="Surname" required>
+                </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                      <div class="input-group-text"><i class="fa fa-phone text-info"></i></div>
+                  </div>
+                  <input type="phone" class="form-control" id="mobile_input" name="phone" placeholder="99000000" required>
+              </div>
+            </div>
+          </div>
+      </div>
+
+
+      <div class="card border-primary rounded-0">
+        <div class="card-header p-0">
+            <div class="bg-info text-white text-center py-4">
+                <h3><i class="fa fa-flask"></i> Research Editor</h3>
+                <p class="m-0">Edit your Research configurations</p>
+            </div>
+        </div>
+        <div id="project_content" class="card-body p-3">
+
+          <div class="form-group">
+              <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                      <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
+                  </div>
+                  <textarea id="description_input" class="form-control" placeholder="Study description" required style="min-height: 150px;"></textarea>
+              </div>
+          </div>
+
+          <div class="container mb-5 bt-2 text-center">
+            <i class="fas fa-exclamation-triangle  mb-2" style="color: red; font-size:32;"></i>
+            <h5><strong>Be careful with the following configurations!</strong></h5>
+            <i class="fas fa-exclamation-triangle" style="color: red; font-size:32;"></i>
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 col-lg-6 mb-4">
+                <div class="row">
+                  <div class="col-md-12 col-lg-6 text-center mb-2"> 
+                    <h5 style="display:inline;" for="study_length" class="mr-2">Research Length (in days: between 1 and 60):</h5>
+                  </div>
+                  <div class="col-md-12 col-lg-6 d-flex justify-content-center mb-2">  
+                    <input class="float-right" type="number" id="study_length" min="1" max="60" value="1" style="width: 55px; height: 30px;">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12 col-lg-6 mb-4">
+                <div class="row">
+                  <div class="col-md-12 col-lg-6 text-center mb-1">
+                    <h5>Allow user to choose individual notification times?</h5>
+                  </div>
+                  <div class="col-md-12 col-lg-6 d-flex justify-content-center mb-2">
+                    <label class="switch float-right">
+                      <input type="checkbox" id="allow_individual_times">
+                      <span class="slider round"></span>
+                    </label>
+                  </div> 
+                </div>
+              </div>              
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 col-lg-6 mb-4">
+                <div class="row">
+                  <div class="col-md-12 col-lg-6 text-center mb-2"> 
+                    <h5 style="display:inline;" for="tests_per_day" class="mr-2">Tests per day: (1-5)</h5>            
+                  </div>  
+                  <div class="col-md-12 col-lg-6 d-flex justify-content-center mb-2">           
+                    <input type="number" id="tests_per_day" min="1" max="5" value="1" style="width: 55px; height: 30px;">
+                    <!--label id="tests_per_day"></label-->
+                  </div>
+                </div>
+              </div>          
+          
+              <div class="col-md-12 col-lg-6 mb-4">
+                <div class="row">
+                  <div class="col-md-12 col-lg-6 text-center mb-1">
+                    <h5>Allow user to terminate programme?</h5>
+                  </div>
+                  <div class="col-md-12 col-lg-6 d-flex justify-content-center mb-2">
+                    <label class="switch float-right">
+                      <input type="checkbox" id="allow_user_termination">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>  
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 col-lg-6 mb-4">
+                <div class="row">
+                  <div class="col-md-12 col-lg-6 text-center mb-2"> 
+                    <h5 style="display:inline;" for="tests_time_interval" class="mr-2">Test time interval: (3-6)</h5>
+                  </div>
+                  <div class="col-md-12 col-lg-6 d-flex justify-content-center mb-2">
+                    <input class="float-right" type="number" id="tests_time_interval" min="3" max="6" value="3" style="width: 55px; height: 30px;">
+                    <!--label id="tests_time_interval"></label-->
+                  </div>
+                </div>
+            </div>
+
+              <div class="col-md-12 col-lg-6 mb-4">
+                <div class="row">
+                  <div class="col-md-12 col-lg-6 text-center mb-1">
+                    <h5>Automate programme termination?</h5>
+                  </div>
+                  <div class="col-md-12 col-lg-6 d-flex justify-content-center mb-2">
+                    <label class="switch float-right">
+                      <input type="checkbox" id="automatic_termination">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>      
+          </div>
+
+          <div class="text-center mt-2">
+              <button onclick="saveInfo()"  class="btn btn-info py-2">
+                Save changes
+              </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

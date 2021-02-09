@@ -1,0 +1,80 @@
+<div class="container-fluid">
+  <div class="card col-centered border-primary well-rounded" style="margin-bottom: 15px;">
+
+      <div class="card-header p-0">
+          <div class="bg-info text-white text-center py-4">
+              <div>
+                <label class="compact">
+                  <h3 class="compact"><i class="fa fa-inbox"></i> Query Selector</h3>
+                </label>
+              </div>
+              <label class="m-0">View your user's answers</label>
+          </div>
+      </div>
+
+      <!--Card content-->
+      <div class="card-body px-lg-5 pt-0">
+          <!-- Form -->
+          <form class="text-center" style="color: #757575;" onsubmit="loadQuery(); return false;">
+
+              <!-- Subject -->
+              <div class="m-4" style="display: none;">
+                <label>Search by:</label>
+                <select class="mdb-select" id="query_selector" onchange="selectQueryContent(this.value);" disabled>
+                    <option disabled> Choose option </option>
+                    <option value=1> All answers</option>
+                    <option value=2> answer</option>
+                    <option value=3 selected> User</option>
+                </select>
+              </div>
+
+              <div id="query_content">                
+                  <div class="md-form mt-3">                                      
+                    <div style="text-align: left;">
+		                <label class="control-label">
+		                  Search Parameters
+		                </label>
+                    </div>
+
+
+                    <div id="questions_content">
+	                  <div id="question_id">
+	                    <label class="mx-3">
+	                      answer ID:
+	                    </label>
+	                    <label class="px-3" contenteditable="true">0</label>
+	                  </div>
+                    </div>
+                    
+	                <div id="users_content">
+	                  <div id="user_id">
+	                    <label class="mx-3">
+	                      User ID:
+	                    </label>
+	                    <span id="user_id_value"class="px-3 py-1" contenteditable="true" onclick="clearData(this)">0</span>
+	                  </div>
+                    </div>
+                  </div>	
+              </div>
+
+              <button style="display:none;" class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Send</button>
+              
+              <button class="btn btn-info mb-2" type="submit">Send</button>          
+              
+              <div>
+                  <a download id="download" hidden></a>
+                  <button id="query_download" class="btn btn-primary float-right mb-4 ml-3" style="display:none;" onclick="downloadQuery('download'); return false;"><i class="fas fa-arrow-alt-circle-down"></i></button>          
+                  <label id="query_result"  class="float-right"></label>
+                  <div class="spacer" style="clear: both;"></div>
+              </div>
+
+              <div id="content" class="container-fluid">
+              	
+              </div>
+          </form>
+          <!-- Form -->
+
+      </div>
+
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="container-fluid">
+
+  <div id="mySidenav" class="sidenav container-fluid px4">
+    <button type="button" class="btn btn-secondary my-2" onclick="addQuestion()">
+        add question
+    </button>
+    <button type="button" class="btn btn-info my-2 float-right" onclick="saveQuestions()">
+        save changes
+    </button>
+  </div>
+
+  <div class="card col-centered border-primary well-rounded" style="margin-bottom: 65px;">
+
+      <div class="card-header p-0">
+          <div class="bg-info text-white text-center py-4">
+              <div>
+                <label class="compact">
+                  <h3 class="compact"><i class="fa fa-file-alt"></i> Quiz Editor</h3>
+                </label>
+              </div>
+              <label class="m-0">Edit your survey questions</label>
+          </div>
+      </div>
+
+      <!--Card content-->
+      <div class="card-body px-lg-5 pt-0">
+	      <!-- Subject -->
+	      <div class="m-3">
+	        <span>Current Quiz:</span>
+	      </div>
+
+	      <div id="quiz_editor" class="accordion">          
+        </div>
+      </div>
+
+  </div>
+
+  <button id="removeItemModalToggle" style="display: none;" type= "button" class="btn btn-primary" data-toggle="modal" data-target="#removeItemModal">
+  </button>
+  <!-- Modal -->
+  <div class="modal fade" id="removeItemModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="removeItemModalTitle"></h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span >&times;</span>
+          </button>
+        </div>
+        <div id="removeItemModalBody" class="modal-body text-center changed">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button id="removeItemModalAccept" type="button" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

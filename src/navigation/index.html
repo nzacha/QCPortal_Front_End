@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script defer src="navigation_script.js" ></script>
+    <script src="../../../script.js" ></script>
+    <link rel="stylesheet" href="../../../styles.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title>Login</title>
+    
+  </head>
+<body style="background-color: #4b5257">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">PsychApp Portal</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown" style="display:none;">
+        <a class="nav-link dropdown-toggle disabled" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+          Query Selector (work in progress)
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item disabled" href="#">Search for all Answers</a>
+          <a class="dropdown-item disabled" href="#">Search by Question ID</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#query_selector">Search by User ID</a>
+        </div>
+      </li>
+      <li class="nav-item active mr-2">
+        <a class="nav-link" href="#quiz_editor" onclick="loadHTMLFrom('html-content', '../query_selector/index', '../query_selector/query_script');">Query Selector <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item mr-2">
+        <a class="nav-link" href="#user_editor" onclick="loadHTMLFrom('html-content', '../user_editor/index', '../user_editor/users_script');">User Editor</a>
+      </li>       
+      <li class="nav-item mr-2">
+        <a class="nav-link" href="#quiz_editor" onclick="loadHTMLFrom('html-content', '../quiz_editor/index', '../quiz_editor/quiz_script');">Quiz Editor <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item mr-2">
+        <a class="nav-link" href="#account_editor" onclick="loadHTMLFrom('html-content', '../account_editor/index', '../account_editor/account_script');">Account / Study Editor</a>
+      </li>
+      <li id="project_manager" class="nav-item mr-2" style="display: none;">
+        <a class="nav-link" href="#project_manager" onclick="loadHTMLFrom('html-content', '../project_manager/index', '../project_manager/project_script');">Project Manager</a>
+      </li>
+      <li id="researcher_manager" class="nav-item mr-2" style="display: none;">
+        <a class="nav-link" href="#researcher_manager" onclick="loadHTMLFrom('html-content', '../researcher_manager/index', '../researcher_manager/researcher_script');">Researcher Manager</a>
+      </li>
+      <select class="mdb-select rounded" id="project_selector">
+        <option disabled>Choose a project</option>
+      </select>
+    </ul>
+  </div>
+</nav>
+
+  <div id="html-content" class="container-fluid" style="margin-top: 65px;">
+  	
+  </div>
+</body>
