@@ -171,3 +171,5 @@ document.querySelector('span[contenteditable="true"]').addEventListener("paste",
         var text = e.clipboardData.getData("text/plain");
         document.execCommand("insertHTML", false, text);
     });
+
+DataTable dtable = new DataTable(document.getElementById("html_content"));

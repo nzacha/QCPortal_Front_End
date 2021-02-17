@@ -99,7 +99,7 @@ function getProjectIndex(){
 }
 
 window.onload = function() {
-	loadHTMLFrom('html-content', '../data_importer/index', '../data_importer/data_import');	
+	loadHTMLFrom('html-content', '../data_viewer/index', '../data_viewer/data_view');	
 	if(account.is_super_user){
 		setVisible("researcher_manager", true);
 		setVisible("project_manager", true);
