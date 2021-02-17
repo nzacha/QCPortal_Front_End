@@ -69,7 +69,7 @@ function addProject(value, index, array){
 function updateProjectSelector(){  
 	account = JSON.parse(localStorage.getItem("Account"));
 	if(account.accountType === "admin"){
-		console.log(account);
+		//console.log(account);
 		account.projects.forEach(addProject);
 		if(account.projects.length > 1)
 			projectId = 0;
