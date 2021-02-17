@@ -5,7 +5,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
     <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script defer src="navigation_script.js" ></script>
-    <script src="../../../script.js" ></script>
+    <script src="../../script.js" ></script>
+    <script src='../../ItemListing.js'></script>
+    <script src='../../DataItems.js'></script>
     <link rel="stylesheet" href="../../../styles.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <meta charset="utf-8">
@@ -14,7 +16,7 @@
   </head>
 <body style="background-color: #4b5257">
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">PsychApp Portal</a>
+  <a class="navbar-brand" href="#">QC Portal</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -32,25 +34,22 @@
           <a class="dropdown-item" href="#query_selector">Search by User ID</a>
         </div>
       </li>
-      <li class="nav-item active mr-2">
-        <a class="nav-link" href="#quiz_editor" onclick="loadHTMLFrom('html-content', '../query_selector/index', '../query_selector/query_script');">Query Selector <span class="sr-only">(current)</span></a>
+      <li id="data_viewer"  class="nav-item active mr-2">
+        <a class="nav-link" href="#data_viewer" onclick="loadHTMLFrom('html-content', '../data_viewer/index', '../data_viewer/data_view');">Data Viewer <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item mr-2">
-        <a class="nav-link" href="#user_editor" onclick="loadHTMLFrom('html-content', '../user_editor/index', '../user_editor/users_script');">User Editor</a>
+      <li id="data_importer"  class="nav-item mr-2">
+        <a class="nav-link" href="#data_importer" onclick="loadHTMLFrom('html-content', '../data_importer/index', '../data_importer/data_import');">Data Importer</a>
       </li>       
-      <li class="nav-item mr-2">
-        <a class="nav-link" href="#quiz_editor" onclick="loadHTMLFrom('html-content', '../quiz_editor/index', '../quiz_editor/quiz_script');">Quiz Editor <span class="sr-only">(current)</span></a>
+      <li id="site_manager"  class="nav-item mr-2" style="display: none;">
+        <a class="nav-link" href="#site_manager" onclick="loadHTMLFrom('html-content', '../site_editor/index', '../site_editor/site_edit');">Site Manager <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item mr-2">
-        <a class="nav-link" href="#account_editor" onclick="loadHTMLFrom('html-content', '../account_editor/index', '../account_editor/account_script');">Account / Study Editor</a>
+      <li id="administrator_manager"  class="nav-item mr-2" style="display: none;">
+        <a class="nav-link" href="#administrator_manager" onclick="loadHTMLFrom('html-content', '../site_administrator_editor/index', '../site_administrator_editor/site_administrator');">Administrators Manager</a>
       </li>
-      <li id="project_manager" class="nav-item mr-2" style="display: none;">
-        <a class="nav-link" href="#project_manager" onclick="loadHTMLFrom('html-content', '../project_manager/index', '../project_manager/project_script');">Project Manager</a>
+      <li id="account_editor" class="nav-item mr-4">
+        <a class="nav-link" href="#account_editor" onclick="loadHTMLFrom('html-content', '../account_editor/index', '../account_editor/account_editor');">Account Editor</a>
       </li>
-      <li id="researcher_manager" class="nav-item mr-2" style="display: none;">
-        <a class="nav-link" href="#researcher_manager" onclick="loadHTMLFrom('html-content', '../researcher_manager/index', '../researcher_manager/researcher_script');">Researcher Manager</a>
-      </li>
-      <select class="mdb-select rounded" id="project_selector">
+      <select class="mdb-select rounded" id="project_selector" style="display: none;">
         <option disabled>Choose a project</option>
       </select>
     </ul>

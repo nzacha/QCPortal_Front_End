@@ -1,3 +1,17 @@
+function setVisible(item_id, value){
+  let item = document.getElementById(item_id);
+  switch (value){
+    case true:
+      item.style = "display: block;" 
+    break;
+    case false:
+      item.style = "display: none;" 
+    break;
+    default:
+      item.style = "display: "+value+";";
+  }
+}
+
 function loadHTMLFrom(nodeId, pageURL, scriptURL){
 	if(!pageURL)
 		return;
@@ -53,10 +67,18 @@ function addProject(value, index, array){
 }
 
 function updateProjectSelector(){  
-	researcher = JSON.parse(localStorage.getItem("RESEARCHER"));
-	researcher.projects.forEach(addProject);
-	if(researcher.projects.length > 1)
-		projectId = 0;
+	account = JSON.parse(localStorage.getItem("Account"));
+	if(account.accountType === "admin"){
+		console.log(account);
+		account.projects.forEach(addProject);
+		if(account.projects.length > 1)
+			projectId = 0;
+
+		setVisible("project_selector", true);
+	}else{
+		setVisible("site_manager", true);
+		setVisible("administrator_manager", true);
+	}
 }
 updateProjectSelector();
 
@@ -65,7 +87,7 @@ function getProjectId(){
   if(index == ""){
   	return;
   }
-  return researcher.projects[index].id;
+  return account.projects[index].id;
 }
 
 function getProjectIndex(){
@@ -77,8 +99,8 @@ function getProjectIndex(){
 }
 
 window.onload = function() {
-	loadHTMLFrom('html-content', '../query_selector/index', '../query_selector/query_script');	
-	if(researcher.is_super_user){
+	loadHTMLFrom('html-content', '../data_importer/index', '../data_importer/data_import');	
+	if(account.is_super_user){
 		setVisible("researcher_manager", true);
 		setVisible("project_manager", true);
 	}
