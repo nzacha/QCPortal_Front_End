@@ -3,11 +3,11 @@ const DISPLAY_SIZES = {
   MEDIUM: "medium",
   SMALL: "small",
 }
-var display_size = DISPLAY_SIZES.LARGE; 
+var display_size = DISPLAY_SIZES.SMALL; 
 
 function createLabels(container){
 	let sub_header = document.createElement("div");
-	sub_header.classList.add("card-header");
+	sub_header.classList.add("card-header", "py-1");
 	
 	let sub_container = document.createElement("div");
 	//sub_container.classList.add("container-fluid", "row");
@@ -41,7 +41,7 @@ class DataTable {
   async retrieveData(){
     try{
       this.data = await $.ajax({
-        url: "http://127.0.0.1:5050/" + "data/project/" +1,
+        url: serverURL + "data/project/" +1,
         type: 'GET',
         dataType: 'json',
         success: function(data, textStatus, xhr) {     
@@ -99,23 +99,23 @@ class DataCategory {
     this.container.classList.add("container-fluid", "mt-2", "p-2");
 
     this.card = document.createElement("div");
-	this.card.classList.add("card", "mt-2", "p-2");
-	this.container.appendChild(this.card);
-    
+  	this.card.classList.add("card", "mt-2");
+  	this.container.appendChild(this.card);
+      
     parentNode.appendChild(this.container);
 
-	this.card_header = document.createElement("div");
-	this.card_header.classList.add("card-header", "col-sm-12", "col-md-3");
-	this.card_header.innerHTML = this.category;
-	this.card.appendChild(this.card_header);
-	    
+  	this.card_header = document.createElement("div");
+  	this.card_header.classList.add("card-header", "changed");
+  	this.card_header.innerHTML = this.category;
+  	this.card.appendChild(this.card_header);
+  	    
     //add children and labels
     if(display_size === DISPLAY_SIZES.LARGE){
     	createLabels(this.card);
     }
     let disciplines = this.disciplines;
     for(var i=0; i<this.disciplines.length; i++){
-      disciplines[i].draw(this, this.card);
+      disciplines[i].draw(this.card);
     }
   }
 }
@@ -136,14 +136,19 @@ class DataDiscipline{
     this.entries.push(new DataItem(entry.id, entry.week, entry.single, entry.accumulated));
   }
 
-  draw(dCategory, parentNode){
-	this.container_body = document.createElement("div");
-	if(display_size === DISPLAY_SIZES.SMALL){
-	    this.container_body.classList.add("card-body", "p-2");
-	    createLabels(parentNode);
-	}else if(display_size === DISPLAY_SIZES.LARGE){
-	    this.container_body.classList.add("card-body", "p-0");
-	}
+  draw(parentNode){
+    this.card_header = document.createElement("div");
+    this.card_header.classList.add("card-header", "changed", "py-2");
+    this.card_header.innerHTML = this.discipline;
+    parentNode.appendChild(this.card_header);
+
+  	this.container_body = document.createElement("div");
+  	if(display_size === DISPLAY_SIZES.SMALL){
+  	    this.container_body.classList.add("card-body", "p-2", "my-2");
+  	    createLabels(parentNode);
+  	}else if(display_size === DISPLAY_SIZES.LARGE){
+  	    this.container_body.classList.add("card-body", "p-0");
+  	}
     parentNode.appendChild(this.container_body);
 	
     for(var i=0; i<this.entries.length; i++){
@@ -169,17 +174,17 @@ class DataItem {
     //this.container.appendChild(this.row);
 
     this.label = document.createElement("div");
-    this.label.classList.add("col-4", "col-md-3");
+    this.label.classList.add("col-4");
     this.label.innerHTML = this.week;
     this.container.appendChild(this.label);
 
     this.label_single = document.createElement("div");
-    this.label_single.classList.add("col-4", "col-md-3");
+    this.label_single.classList.add("col-4");
     this.label_single.innerHTML = this.single;
     this.container.appendChild(this.label_single);
 
     this.label_accumulated = document.createElement("div");
-    this.label_accumulated.classList.add("col-4", "col-md-3");
+    this.label_accumulated.classList.add("col-4");
     this.label_accumulated.innerHTML = this.accumulated;
     this.container.appendChild(this.label_accumulated);
 
@@ -187,5 +192,3 @@ class DataItem {
     //console.log(this.id +" "+this.week +" "+ this.single+" "+this.accumulated);
   }
 }
-
-var table = new DataTable("Table");

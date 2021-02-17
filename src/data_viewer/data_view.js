@@ -124,6 +124,7 @@ function loadQuery(){
   });
 }
 
+var table = new DataTable("Table");
 function clearData(node){
 	node.innerHTML=null;
 }
