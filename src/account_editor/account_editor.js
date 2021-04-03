@@ -9,7 +9,7 @@ var project_content = document.getElementById("project_content");
 
 function loadAccountInfo(){
 	account = JSON.parse(localStorage.getItem("Account"));
-	console.log(account);
+	//console.log(account);
 	nameField.placeholder = account.name;
 	nameField.onfocus = function(){
 	    if(!this.classList.contains("changed"))

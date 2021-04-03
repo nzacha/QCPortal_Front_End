@@ -5,21 +5,22 @@
           <div class="bg-info text-white text-center py-4">
               <div>
                 <label class="compact">
-                  <h3 class="compact"><i class="fa fa-inbox"></i> Data Viewer</h3>
+                  <h3 class="compact"><i class="fa fa-inbox"></i> Data Importer</h3>
                 </label>
               </div>
-              <label class="m-0">View Project Data</label>
+              <label class="m-0">Import Weekly Report</label>
           </div>
       </div>
 
       <!--Card content-->
-      <div id="card-content" class="card-body p-0">          
+      <div id="card-content" class="card-body  p-0">          
       </div>
 
   </div>
 
-  <div id="mySidenav" class="sidenav container-fluid px4" style="display:none;">
-    <button type="button" class="btn btn-info my-2 float-right" data-toggle="modal" data-target="#removeItemModal" onclick="addWeeklyReport()"> 
+  <div id="mySidenav" class="sidenav container-fluid px4">
+    <button id="week-label" class="btn btn-light my-2 float-left" disabled>Week: 0</button>
+    <button type="button" class="btn btn-info my-2 float-right" onclick="addWeeklyReport()"> 
         add weekly report
     </button>
   </div>
@@ -39,9 +40,10 @@
           </button>
         </div>
         <div id="modalBody" class="modal-body">
+          Data Imported Successfully!
         </div>
         <div class="modal-footer">
-          <button id="removeItemModalAccept" type="button" class="btn btn-danger" class="close" data-dismiss="modal">Cancel</button>
+          <button id="removeItemModalAccept" type="button" class="btn btn-danger" class="close" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>

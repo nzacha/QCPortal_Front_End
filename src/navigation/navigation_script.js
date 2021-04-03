@@ -68,14 +68,14 @@ function addProject(value, index, array){
 
 function updateProjectSelector(){  
 	account = JSON.parse(localStorage.getItem("Account"));
-	if(account.accountType === "admin"){
-		//console.log(account);
+	if(account.projects.length > 0){
 		account.projects.forEach(addProject);
 		if(account.projects.length > 1)
 			projectId = 0;
 
 		setVisible("project_selector", true);
-	}else{
+	}
+	if(account.accountType === "user"){
 		setVisible("site_manager", true);
 		setVisible("administrator_manager", true);
 	}
@@ -99,9 +99,30 @@ function getProjectIndex(){
 }
 
 window.onload = function() {
-	loadHTMLFrom('html-content', '../data_viewer/index', '../data_viewer/data_view');	
+	loadHTMLFrom('html-content', '../data_importer/index', '../data_importer/data_import');	
 	if(account.is_super_user){
 		setVisible("researcher_manager", true);
 		setVisible("project_manager", true);
 	}
 };
+
+var project;
+function retrieveProjectData(){
+  $.ajax({
+    url: serverURL + "/projects/" + getProjectId(),
+    type: 'GET',
+    dataType: 'json',
+    success: function(data, textStatus, xhr) {
+      if(xhr.status === 200){
+        project = data;
+      } else {
+        window.alert("couldn't add administrator");
+      }
+    }
+  });
+}
+retrieveProjectData();
+
+document.getElementById("project_selector").addEventListener('change', (event) => {
+  retrieveProjectData();
+});

@@ -1,8 +1,7 @@
 var usernameField = document.getElementById("username_field");
 var passwordField = document.getElementById("password_field");
 
-const serverURL = "http://192.168.0.17:5050";
-//const serverURL = "localhost:5050"
+const serverURL = "http://127.0.0.1:5050";
 
 function authenticateUser(){
 	username = usernameField.value;
@@ -15,7 +14,7 @@ function authenticateUser(){
 		window.alert("Please provide a password");
 		return
 	}
-
+  console.log(serverURL)
     $.ajax({
       url: serverURL+"/authenticate",
       type: 'POST',
